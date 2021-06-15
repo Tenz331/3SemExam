@@ -12,8 +12,8 @@ import dto.CombinedDTO;
 import dto.StarWarsShipDTO;
 import dto.JokeDTO;
 import dto.CatFactDTO;
-import dto.DummyDto;
-import entities.DummyEntity;
+import dto.OwnerDto;
+import entities.OwnerEntity;
 import facade.testFacade;
 import java.io.IOException;
 import static java.lang.String.format;
@@ -57,7 +57,7 @@ public class DummyResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
       public String getFromDB(){
-         List<DummyDto> list = new ArrayList();
+         List<OwnerDto> list = new ArrayList();
         list.addAll(facade.getAllPersons());
         return GSON.toJson(list);
       }
@@ -66,7 +66,7 @@ public class DummyResource {
       @POST
     @Produces({MediaType.APPLICATION_JSON})
      @Consumes(MediaType.APPLICATION_JSON)
-        public void addNewPerson(DummyEntity p){
+        public void addNewPerson(OwnerEntity p){
             System.out.println(p);
             try {
                  if(p.getName()== null){
@@ -80,7 +80,7 @@ public class DummyResource {
       catch(Exception e){
                   throw new WebApplicationException("Internal Server Problem. We are sorry for the inconvenience",501);
     }finally{
-              facade.createPerson(p.getName());
+              facade.createPerson(p);
         }
     }
         
@@ -89,8 +89,8 @@ public class DummyResource {
     @PUT
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_JSON)
-    public DummyDto edit(@PathParam("id") int id, String person) throws Exception{
-    DummyDto DTO = GSON.fromJson(person, DummyDto.class);
+    public OwnerDto edit(@PathParam("id") int id, String person) throws Exception{
+    OwnerDto DTO = GSON.fromJson(person, OwnerDto.class);
     facade.edit(id, DTO.getDtoName());
      return DTO;
 
@@ -100,8 +100,8 @@ public class DummyResource {
     @DELETE
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_JSON)
-    public DummyDto edit(@PathParam("id") int id) throws Exception{
-    DummyDto p = facade.delete(id);
+    public OwnerDto edit(@PathParam("id") int id) throws Exception{
+    OwnerDto p = facade.delete(id);
      return p;
 
     }    

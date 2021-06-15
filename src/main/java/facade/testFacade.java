@@ -5,8 +5,8 @@
  */
 package facade;
 
-import dto.DummyDto;
-import entities.DummyEntity;
+import dto.OwnerDto;
+import entities.OwnerEntity;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -31,40 +31,37 @@ public class testFacade {
         }
         return instance;
     }
-        public DummyEntity createPerson(String name){
+        public OwnerDto createPerson(OwnerEntity rm){
         EntityManager em = emf.createEntityManager();
-         DummyEntity df1 = new DummyEntity(name);
-
-        try{
+        try {
             em.getTransaction().begin();
-            em.persist(df1);
-            em.getTransaction().commit(); 
-        }finally {
+            em.persist(rm);
+            em.getTransaction().commit();
+        } finally {
             em.close();
         }
-         return new DummyEntity(name.toString());
+        return new OwnerDto(rm);
         }
         
-        
-        public List<DummyDto> getAllPersons(){
+        public List<OwnerDto> getAllPersons(){
         
         EntityManager em = emf.createEntityManager();
-          List<DummyEntity> rms;
+          List<OwnerEntity> rms;
         try{
-        TypedQuery<DummyEntity> query = em.createQuery("SELECT p FROM DummyEntity p", DummyEntity.class);
+        TypedQuery<OwnerEntity> query = em.createQuery("SELECT p FROM OwnerEntity p", OwnerEntity.class);
             System.out.println(query);
         rms = query.getResultList();
         }catch(Exception e){    
      throw new WebApplicationException("Internal Server Problem. We are sorry for the inconvenience " + e.toString(),500);
     }
-        return DummyDto.getDtos(rms);
+        return OwnerDto.getDtos(rms);
     }
 
-    public DummyDto edit(int id, String dtoName) {
+    public OwnerDto edit(int id, String dtoName) {
     EntityManager em = emf.createEntityManager();
-    DummyEntity personToEdit;
+    OwnerEntity personToEdit;
     try{
-        personToEdit = (em.find(DummyEntity.class, id));
+        personToEdit = (em.find(OwnerEntity.class, id));
         personToEdit.setName(dtoName);
         em.getTransaction().begin();
         em.merge(personToEdit);
@@ -72,21 +69,21 @@ public class testFacade {
     }catch(Exception e){
         throw new WebApplicationException(e.toString());
     }
-    return new DummyDto(personToEdit);
+    return new OwnerDto(personToEdit);
     }
 
-    public DummyDto delete(int id) {
+    public OwnerDto delete(int id) {
         EntityManager em = emf.createEntityManager();
-    DummyEntity personToDelete;
+    OwnerEntity personToDelete;
     try{
-        personToDelete = (em.find(DummyEntity.class, id));
+        personToDelete = (em.find(OwnerEntity.class, id));
         em.getTransaction().begin();
         em.remove(personToDelete);
         em.getTransaction().commit();
     }catch(Exception e){
         throw new WebApplicationException(e.toString());
     }
-    return new DummyDto(personToDelete);
+    return new OwnerDto(personToDelete);
     }
     
         

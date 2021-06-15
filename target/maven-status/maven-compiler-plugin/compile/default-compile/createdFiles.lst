@@ -5,6 +5,7 @@ security\SharedSecret.class
 secuirty\errorhandling\NotAuthorizedExceptionMapper.class
 dto\ChuckDTO.class
 secuirty\errorhandling\AuthenticationExceptionMapper.class
+entities\OwnerEntity.class
 restAPI\DummyResource.class
 utils\DummyData.class
 entities\User.class
@@ -12,7 +13,6 @@ facade\UserFacade.class
 utils\EntityManagerCreator.class
 utils\HTTPFetch.class
 security\UserPrincipal.class
-dto\DummyDto.class
 utils\test.class
 errorhandling\GenericExceptionMapper.class
 facade\testFacade.class
@@ -20,13 +20,13 @@ errorhandling\API_Exception.class
 security\LoginEndpoint.class
 cors\CorsFilter.class
 entities\Role.class
+dto\OwnerDto.class
 security\JWTAuthenticationFilter.class
 dto\CombinedDTO.class
 dto\JokeDTO.class
 dto\StarWarsShipDTO.class
 restAPI\LoginResource.class
 security\RolesAllowedFilter.class
-entities\DummyEntity.class
 errorhandling\NotFoundException.class
 secuirty\errorhandling\AuthenticationException.class
 errorhandling\ExceptionDTO.class
