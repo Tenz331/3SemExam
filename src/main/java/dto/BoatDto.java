@@ -19,9 +19,18 @@ public class BoatDto {
     private String dtomake;
     private String dtoboatName;
     private String dtoimage;
+    private int harbour_id;
 
     public String getDtobrand() {
         return dtobrand;
+    }
+
+    public int getHarbour_id() {
+        return harbour_id;
+    }
+
+    public void setHarbour_id(int harbour_id) {
+        this.harbour_id = harbour_id;
     }
 
     public void setDtobrand(String dtobrand) {
@@ -52,11 +61,12 @@ public class BoatDto {
         this.dtoimage = dtoimage;
     }
 
-    public BoatDto(String dtobrand, String dtomake, String dtoboatName, String dtoimage) {
+    public BoatDto(String dtobrand, String dtomake, String dtoboatName, String dtoimage,int dtoharbour_id) {
         this.dtobrand = dtobrand;
         this.dtomake = dtomake;
         this.dtoboatName = dtoboatName;
         this.dtoimage = dtoimage;
+        this.harbour_id = dtoharbour_id;
     }
     
       public BoatDto(BoatEntity rm) {

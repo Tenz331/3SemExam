@@ -7,6 +7,7 @@ package restAPI;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import dto.BoatDto;
 import dto.ChuckDTO;
 import dto.CombinedDTO;
 import dto.StarWarsShipDTO;
@@ -58,9 +59,19 @@ public class DummyResource {
     @Produces({MediaType.APPLICATION_JSON})
       public String getFromDB(){
          List<OwnerDto> list = new ArrayList();
-        list.addAll(facade.getAllPersons());
+        list.addAll(facade.getAllOwners());
         return GSON.toJson(list);
       }
+      
+    @Path("/boats")          
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+      public String getBoatsFromDB(){
+         List<BoatDto> list = new ArrayList();
+        list.addAll(facade.getBoatHarbours());
+        return GSON.toJson(list);
+      }  
+      
       
       @Path("/add")
       @POST
@@ -80,7 +91,7 @@ public class DummyResource {
       catch(Exception e){
                   throw new WebApplicationException("Internal Server Problem. We are sorry for the inconvenience",501);
     }finally{
-              facade.createPerson(p);
+              facade.createOwner(p);
         }
     }
         
@@ -91,7 +102,7 @@ public class DummyResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public OwnerDto edit(@PathParam("id") int id, String person) throws Exception{
     OwnerDto DTO = GSON.fromJson(person, OwnerDto.class);
-    facade.edit(id, DTO.getDtoName());
+    facade.edit(id, DTO.getDtoName(),DTO.getDtoAddress(),DTO.getDtoPhone());
      return DTO;
 
     }

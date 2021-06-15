@@ -13,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -33,6 +35,10 @@ public class BoatEntity implements Serializable {
     @ManyToMany
     private List<OwnerEntity> ownerList;
 
+    @ManyToOne
+    private HarbourEntity harbour;
+    
+    
     public BoatEntity() {
     }
 
@@ -42,6 +48,15 @@ public class BoatEntity implements Serializable {
         this.boatName = boatName;
         this.image = image;
         this.ownerList = new ArrayList<>();
+    }
+
+
+    public HarbourEntity getHarbour() {
+        return harbour;
+    }
+
+    public void setHarbour(HarbourEntity harbour) {
+        this.harbour = harbour;
     }
 
     public List<OwnerEntity> getOwnerList() {

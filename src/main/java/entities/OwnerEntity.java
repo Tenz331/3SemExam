@@ -9,8 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.time.LocalDateTime;    
+import javax.persistence.Id;   
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -45,7 +44,13 @@ public class OwnerEntity implements Serializable {
         boat.getOwnerList().add(this);
         }
         }
-            
+    
+    public void removeBoat(BoatEntity boat){
+        if(boat != null){
+            boatList.remove(boat);
+            boat.getOwnerList().remove(this);
+        }
+    }
             
     public String getAddress() {
         return address;

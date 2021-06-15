@@ -5,7 +5,9 @@
  */
 package facade;
 
+import dto.BoatDto;
 import dto.OwnerDto;
+import entities.BoatEntity;
 import entities.OwnerEntity;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -31,7 +33,7 @@ public class testFacade {
         }
         return instance;
     }
-        public OwnerDto createPerson(OwnerEntity rm){
+        public OwnerDto createOwner(OwnerEntity rm){
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
@@ -43,7 +45,7 @@ public class testFacade {
         return new OwnerDto(rm);
         }
         
-        public List<OwnerDto> getAllPersons(){
+        public List<OwnerDto> getAllOwners(){
         
         EntityManager em = emf.createEntityManager();
           List<OwnerEntity> rms;
@@ -57,12 +59,30 @@ public class testFacade {
         return OwnerDto.getDtos(rms);
     }
 
-    public OwnerDto edit(int id, String dtoName) {
+    public List<BoatDto> getBoatHarbours(){
+        
+        EntityManager em = emf.createEntityManager();
+          List<BoatEntity> rms;
+        try{
+        TypedQuery<BoatEntity> query = em.createQuery("SELECT b FROM BoatEntity b", BoatEntity.class);
+            System.out.println(query);
+        rms = query.getResultList();
+        }catch(Exception e){    
+     throw new WebApplicationException("Internal Server Problem. We are sorry for the inconvenience " + e.toString(),500);
+    }
+        return BoatDto.getDtos(rms);
+    }
+        
+        
+        
+    public OwnerDto edit(int id, String dtoName, String dtoAddress, String dtoPhone) {
     EntityManager em = emf.createEntityManager();
     OwnerEntity personToEdit;
     try{
         personToEdit = (em.find(OwnerEntity.class, id));
         personToEdit.setName(dtoName);
+        personToEdit.setAddress(dtoAddress);
+        personToEdit.setPhone(dtoPhone);
         em.getTransaction().begin();
         em.merge(personToEdit);
         em.getTransaction().commit();
