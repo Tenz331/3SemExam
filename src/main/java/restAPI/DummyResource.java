@@ -13,7 +13,9 @@ import dto.CombinedDTO;
 import dto.StarWarsShipDTO;
 import dto.JokeDTO;
 import dto.CatFactDTO;
+import dto.HarbourDto;
 import dto.OwnerDto;
+import entities.BoatEntity;
 import entities.OwnerEntity;
 import facade.testFacade;
 import java.io.IOException;
@@ -68,30 +70,39 @@ public class DummyResource {
     @Produces({MediaType.APPLICATION_JSON})
       public String getBoatsFromDB(){
          List<BoatDto> list = new ArrayList();
-        list.addAll(facade.getBoatHarbours());
+        list.addAll(facade.getBoats());
         return GSON.toJson(list);
       }  
       
+      @Path("/harbours")          
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+      public String getHarboursFromDB(){
+         List<HarbourDto> list = new ArrayList();
+        list.addAll(facade.getHarbours());
+        return GSON.toJson(list);
+      } 
       
-      @Path("/add")
+      
+      @Path("/addboat")
       @POST
     @Produces({MediaType.APPLICATION_JSON})
      @Consumes(MediaType.APPLICATION_JSON)
-        public void addNewPerson(OwnerEntity p){
-            System.out.println(p);
+        public void addNewBoat(BoatEntity b){
+            System.out.println(b);
             try {
-                 if(p.getName()== null){
+                 if(b.getBrand()== null || b.getMake()== null || b.getBoatName()== null){
                    throw new WebApplicationException(Response
           .status(BAD_REQUEST)
           .type(MediaType.APPLICATION_JSON)
-          .entity(format("Missing info please check %s", p.toString()))
+          .entity(format("Missing info please check %s", b.toString()))
           .build());
             }
         }
       catch(Exception e){
                   throw new WebApplicationException("Internal Server Problem. We are sorry for the inconvenience",501);
     }finally{
-              facade.createOwner(p);
+              facade.createBoat(b);
         }
     }
         

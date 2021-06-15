@@ -32,6 +32,7 @@ public class BoatEntity implements Serializable {
     private String boatName;
     private String image;
     
+    
     @ManyToMany
     private List<OwnerEntity> ownerList;
 

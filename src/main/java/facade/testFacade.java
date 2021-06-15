@@ -6,8 +6,10 @@
 package facade;
 
 import dto.BoatDto;
+import dto.HarbourDto;
 import dto.OwnerDto;
 import entities.BoatEntity;
+import entities.HarbourEntity;
 import entities.OwnerEntity;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -45,6 +47,18 @@ public class testFacade {
         return new OwnerDto(rm);
         }
         
+         public BoatDto createBoat(BoatEntity rm){
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(rm);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return new BoatDto(rm);
+        }
+         
         public List<OwnerDto> getAllOwners(){
         
         EntityManager em = emf.createEntityManager();
@@ -59,7 +73,7 @@ public class testFacade {
         return OwnerDto.getDtos(rms);
     }
 
-    public List<BoatDto> getBoatHarbours(){
+    public List<BoatDto> getBoats(){
         
         EntityManager em = emf.createEntityManager();
           List<BoatEntity> rms;
@@ -73,6 +87,19 @@ public class testFacade {
         return BoatDto.getDtos(rms);
     }
         
+     public List<HarbourDto> getHarbours(){
+        
+        EntityManager em = emf.createEntityManager();
+          List<HarbourEntity> rms;
+        try{
+        TypedQuery<HarbourEntity> query = em.createQuery("SELECT h FROM HarbourEntity h", HarbourEntity.class);
+            System.out.println(query);
+        rms = query.getResultList();
+        }catch(Exception e){    
+     throw new WebApplicationException("Internal Server Problem. We are sorry for the inconvenience " + e.toString(),500);
+    }
+        return HarbourDto.getDtos(rms);
+    }
         
         
     public OwnerDto edit(int id, String dtoName, String dtoAddress, String dtoPhone) {
