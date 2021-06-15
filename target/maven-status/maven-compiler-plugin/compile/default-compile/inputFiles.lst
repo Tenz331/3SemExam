@@ -12,10 +12,13 @@ C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\m
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\secuirty\errorhandling\AuthenticationException.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\security\JWTSecurityContext.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\dto\StarWarsShipDTO.java
+C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\entities\BoatEntity.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\dto\ChuckDTO.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\cors\CorsFilter.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\dto\JokeDTO.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\entities\User.java
+C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\dto\BoatDto.java
+C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\dto\HarbourDto.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\errorhandling\ExceptionDTO.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\security\RolesAllowedFilter.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\errorhandling\API_Exception.java
@@ -25,6 +28,7 @@ C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\m
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\entities\Role.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\security\JWTAuthenticationFilter.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\utils\HTTPFetch.java
+C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\entities\HarbourEntity.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\entities\OwnerEntity.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\secuirty\errorhandling\NotAuthorizedExceptionMapper.java
 C:\Users\melo-\Documents\NetBeansProjects\SolidCode-StartCode-BackEnd-Exam\src\main\java\security\LoginEndpoint.java

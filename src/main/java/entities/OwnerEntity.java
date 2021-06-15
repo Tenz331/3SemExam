@@ -11,6 +11,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;    
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 
 /**
@@ -28,10 +32,21 @@ public class OwnerEntity implements Serializable {
     private String name;
     private String address;
     private String phone;
+    
+    @ManyToMany(mappedBy="ownerList", cascade = CascadeType.PERSIST)
+    List<BoatEntity> boatList;
 
     public OwnerEntity() {
     }
 
+    public void addBoat(BoatEntity boat){
+        if(boat != null){
+        this.boatList.add(boat);
+        boat.getOwnerList().add(this);
+        }
+        }
+            
+            
     public String getAddress() {
         return address;
     }
@@ -72,15 +87,14 @@ public class OwnerEntity implements Serializable {
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.boatList = new ArrayList<>();
     }
 
     @Override
     public String toString() {
         return "DummyEntity{" + "id=" + id + ", name=" + name + ", address=" + address + ", phone=" + phone + '}';
     }
-
     
 
-   
     
 }

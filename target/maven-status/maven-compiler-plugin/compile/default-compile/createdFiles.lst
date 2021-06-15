@@ -2,6 +2,7 @@ dto\CatFactDTO.class
 security\JWTSecurityContext.class
 errorhandling\API_ExceptionMapper.class
 security\SharedSecret.class
+entities\BoatEntity.class
 secuirty\errorhandling\NotAuthorizedExceptionMapper.class
 dto\ChuckDTO.class
 secuirty\errorhandling\AuthenticationExceptionMapper.class
@@ -12,7 +13,10 @@ entities\User.class
 facade\UserFacade.class
 utils\EntityManagerCreator.class
 utils\HTTPFetch.class
+dto\BoatDto.class
 security\UserPrincipal.class
+dto\HarbourDto.class
+entities\HarbourEntity.class
 utils\test.class
 errorhandling\GenericExceptionMapper.class
 facade\testFacade.class
