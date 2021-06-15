@@ -111,19 +111,19 @@ public class DummyResource {
     @PUT
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_JSON)
-    public OwnerDto edit(@PathParam("id") int id, String person) throws Exception{
-    OwnerDto DTO = GSON.fromJson(person, OwnerDto.class);
-    facade.edit(id, DTO.getDtoName(),DTO.getDtoAddress(),DTO.getDtoPhone());
+    public BoatDto boatEdit(@PathParam("id") int dtoid, String boat) throws Exception{
+    BoatDto DTO = GSON.fromJson(boat, BoatDto.class);
+    facade.boatEdit(dtoid, DTO.getDtobrand(),DTO.getDtomake(),DTO.getDtoboatName(),DTO.getDtoimage());
      return DTO;
 
     }
         
-     @Path("/delete/{id}")
+     @Path("/boats/{id}")
     @DELETE
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_JSON)
-    public OwnerDto edit(@PathParam("id") int id) throws Exception{
-    OwnerDto p = facade.delete(id);
+    public BoatDto delete(@PathParam("id") int id) throws Exception{
+    BoatDto p = facade.delete(id);
      return p;
 
     }    

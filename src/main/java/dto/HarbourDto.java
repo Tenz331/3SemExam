@@ -14,6 +14,7 @@ import java.util.List;
  * @author melo-
  */
 public class HarbourDto {
+    private int dtoHarbourid;
      private String dtoHarbourName;
     private String dtoHarbourAddress;
     private int dtoCapacity;
@@ -42,13 +43,23 @@ public class HarbourDto {
         this.dtoCapacity = dtoCapacity;
     }
 
-    public HarbourDto(String dtoHarbourName, String dtoHarbourAddress, int dtoCapacity) {
+    public int getDtoHarbourid() {
+        return dtoHarbourid;
+    }
+
+    public void setDtoHarbourid(int dtoHarbourid) {
+        this.dtoHarbourid = dtoHarbourid;
+    }
+
+    public HarbourDto(String dtoHarbourName, String dtoHarbourAddress, int dtoCapacity, int dtoHarbourid) {
+        this.dtoHarbourid = dtoHarbourid;
         this.dtoHarbourName = dtoHarbourName;
         this.dtoHarbourAddress = dtoHarbourAddress;
         this.dtoCapacity = dtoCapacity;
     }
     
     public HarbourDto(HarbourEntity rm) {
+        this.dtoHarbourid = rm.getId();
         this.dtoHarbourName = rm.getHarbourName();
         this.dtoHarbourAddress = rm.getHarbourAddress();
         this.dtoCapacity = rm.getCapacity();

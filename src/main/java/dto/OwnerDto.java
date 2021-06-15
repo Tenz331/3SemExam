@@ -14,7 +14,7 @@ import java.util.List;
  * @author melo-
  */
 public class OwnerDto {
-    
+    private int dtoOwnerid;
     private String dtoName;
     private String dtoAddress;
     private String dtoPhone;
@@ -48,7 +48,16 @@ public class OwnerDto {
         return "DummyDto{" + "dtoName=" + dtoName + ", dtoAddress=" + dtoAddress + ", dtoPhone=" + dtoPhone + '}';
     }
 
-    public OwnerDto(String dtoName, String dtoAddress, String dtoPhone) {
+    public int getDtoOwnerid() {
+        return dtoOwnerid;
+    }
+
+    public void setDtoOwnerid(int dtoOwnerid) {
+        this.dtoOwnerid = dtoOwnerid;
+    }
+
+    public OwnerDto(String dtoName, String dtoAddress, String dtoPhone, int dtoOwnerid) {
+        this.dtoOwnerid = dtoOwnerid;
         this.dtoName = dtoName;
         this.dtoAddress = dtoAddress;
         this.dtoPhone = dtoPhone;
@@ -56,6 +65,7 @@ public class OwnerDto {
 
 
     public OwnerDto(OwnerEntity rm) {
+        this.dtoOwnerid = rm.getId();
         this.dtoName = rm.getName();
         this.dtoAddress = rm.getAddress();
         this.dtoPhone = rm.getPhone();

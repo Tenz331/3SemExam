@@ -102,35 +102,36 @@ public class testFacade {
     }
         
         
-    public OwnerDto edit(int id, String dtoName, String dtoAddress, String dtoPhone) {
+    public BoatDto boatEdit(int dtoid, String dtobrand, String dtomake, String dtoboatName, String dtoimage) {
     EntityManager em = emf.createEntityManager();
-    OwnerEntity personToEdit;
+    BoatEntity boatToEdit;
     try{
-        personToEdit = (em.find(OwnerEntity.class, id));
-        personToEdit.setName(dtoName);
-        personToEdit.setAddress(dtoAddress);
-        personToEdit.setPhone(dtoPhone);
+        boatToEdit = (em.find(BoatEntity.class, dtoid));
+        boatToEdit.setBrand(dtobrand);
+        boatToEdit.setMake(dtomake);
+        boatToEdit.setBoatName(dtoboatName);
+         boatToEdit.setImage(dtoimage);
         em.getTransaction().begin();
-        em.merge(personToEdit);
+        em.merge(boatToEdit);
         em.getTransaction().commit();
     }catch(Exception e){
         throw new WebApplicationException(e.toString());
     }
-    return new OwnerDto(personToEdit);
+    return new BoatDto(boatToEdit);
     }
 
-    public OwnerDto delete(int id) {
+    public BoatDto delete(int id) {
         EntityManager em = emf.createEntityManager();
-    OwnerEntity personToDelete;
+    BoatEntity boatToDelete;
     try{
-        personToDelete = (em.find(OwnerEntity.class, id));
+        boatToDelete = (em.find(BoatEntity.class, id));
         em.getTransaction().begin();
-        em.remove(personToDelete);
+        em.remove(boatToDelete);
         em.getTransaction().commit();
     }catch(Exception e){
         throw new WebApplicationException(e.toString());
     }
-    return new OwnerDto(personToDelete);
+    return new BoatDto(boatToDelete);
     }
     
         

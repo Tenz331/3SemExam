@@ -6,6 +6,7 @@
 package dto;
 
 import entities.BoatEntity;
+import entities.HarbourEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,12 +15,12 @@ import java.util.List;
  * @author melo-
  */
 public class BoatDto {
-    
-     private String dtobrand;
+    private int dtoid;
+    private String dtobrand;
     private String dtomake;
     private String dtoboatName;
     private String dtoimage;
-
+    
     public String getDtobrand() {
         return dtobrand;
     }
@@ -52,7 +53,19 @@ public class BoatDto {
         this.dtoimage = dtoimage;
     }
 
-    public BoatDto(String dtobrand, String dtomake, String dtoboatName, String dtoimage) {
+    public int getDtoid() {
+        return dtoid;
+    }
+
+    public void setDtoid(int dtoid) {
+        this.dtoid = dtoid;
+    }
+
+
+   
+
+    public BoatDto(String dtobrand, String dtomake, String dtoboatName, String dtoimage, int dtoiid) {
+        this.dtoid = dtoid;
         this.dtobrand = dtobrand;
         this.dtomake = dtomake;
         this.dtoboatName = dtoboatName;
@@ -60,6 +73,7 @@ public class BoatDto {
     }
     
       public BoatDto(BoatEntity rm) {
+       this.dtoid = rm.getId();
         this.dtobrand = rm.getBrand();
         this.dtomake = rm.getMake();
         this.dtoboatName = rm.getBoatName();
