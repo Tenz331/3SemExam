@@ -118,7 +118,7 @@ public void test(){
 
       System.out.println(">Testing API STATUS");
       given().when().get("/dummyAPI/getStatus").then().statusCode(200);
-      System.out.println(">>API ONLINE IT SEEMS LUL");
+      System.out.println(">>API ONLINE IT SEEMS");
 
   
 }    

@@ -35,16 +35,16 @@
     <td>Open</td>
   </tr>
  <tr>
-    <td>Delete</td>
-    <td>/dummyAPI/delete</td>
-    <td>Int id</td>
+    <td>GET</td>
+    <td>/dummyAPI/boats</td>
+    <td>List / Array</td>
     <td>200</td>
     <td>Open</td>
   </tr>
   <tr>
-    <td>Update</td>
-    <td>/dummyAPI/update</td>
-    <td>Int id, String person</td>
+    <td>GET</td>
+    <td>/dummyAPI/harbours</td>
+    <td>List / Array</td>
     <td>200</td>
     <td>Open</td>
   </tr>
@@ -57,15 +57,22 @@
   </tr>
    <tr>
     <td>POST</td>
-    <td>/dummyAPI/add</td>
-    <td>String {"name": "name"}</td>
+    <td>/dummyAPI/addboat</td>
+    <td>Opretelse af en båd</td>
     <td>204</td>
       <td>Open</td>
   </tr>
    <tr>
-    <td>GET</td>
-    <td>/dummyAPI/5endPoints</td>
-    <td>List / Array</td>
+    <td>PUT</td>
+    <td>/dummyAPI/edit/{id}</td>
+    <td>Edit af en båd udfra id</td>
+    <td>200</td>
+      <td>Open</td>
+       </tr>
+   <tr>
+    <td>DELETE</td>
+    <td>/dummyAPI//boats/{id}</td>
+    <td>Delete af en båd udfra id</td>
     <td>200</td>
       <td>Open</td>
   </tr>
